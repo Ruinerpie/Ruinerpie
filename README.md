@@ -10,6 +10,7 @@
 
 - **YouTube:** https://www.youtube.com/@Ruinerpie
 - **Instagram:** https://www.instagram.com/ruinerpie/
+- **Instagram:** https://www.instagram.com/ruinerpie.dev/
 - **Twitter / X:** https://x.com/ruinerpie
 - **Facebook:** https://www.facebook.com/ruinerpie
 - **TikTok:** https://www.tiktok.com/@ruinerpie
