@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ruinerpie – Developer Portfolio</title>
+    <title>Ruinerpie</title>
     <meta name="description" content="Ruinerpie is a developer from India building Minecraft mods, web apps, Android apps, and Windows software." />
     <link rel="canonical" href="https://ruinerpie.github.io/" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e63946'/%3E%3Ctext x='50' y='60' font-family='sans-serif' font-size='40' font-weight='bold' fill='%23ffffff' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
-    <meta property="og:title" content="Ruinerpie – Developer Portfolio" />
+    <link rel="icon" type="image/png" sizes="96x96" href="ast/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="ast/favicon.svg">
+    <link rel="shortcut icon" href="ast/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="ast/apple-touch-icon.png">
+    <link rel="manifest" href="ast/site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Ruinerpie">
+    <meta property="og:title" content="Ruinerpie" />
     <meta property="og:description" content="We Make Minecraft Mods (java), Web Games and Web APPs, Android APPs and Android Games, Windows 11 Games and APPs." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ruinerpie.github.io/" />
@@ -20,13 +25,16 @@
     <header class="top-bar">
         <div class="logo">
             <h1>Ruinerpie</h1>
-            <span class="logo-tag">dev · mods · apps</span>
+            <span class="logo-tag">Dev · Gamer · Mods · Apps</span>
         </div>
         <nav style="display: flex; flex-wrap: wrap; gap: var(--space-lg); align-items: center;">
             <a href="#about" class="nav-link">About</a>
             <a href="#connect" class="nav-link">Connect</a>
             <a href="#projects" class="nav-link">Projects</a>
-            <a href="https://discord.gg/gRgfUZwSUf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Join Discord</a>
+            <a href="https://discord.gg/gRgfUZwSUf" target="_blank" rel="noopener noreferrer" class="btn-discord">
+                <img src="https://cdn.simpleicons.org/discord" alt="" width="16" height="16" />
+                Join Discord
+            </a>
         </nav>
     </header>
     <main>
@@ -38,7 +46,8 @@
                     Android APPs and Android Games, Windows 11 Games and APPs.
                 </p>
                 <div class="hero-actions">
-                    <a href="https://discord.gg/gRgfUZwSUf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+                    <a href="https://discord.gg/gRgfUZwSUf" target="_blank" rel="noopener noreferrer" class="btn-discord-lg">
+                        <img src="https://cdn.simpleicons.org/discord" alt="" width="22" height="22" />
                         Join Discord
                     </a>
                     <a href="#projects" class="btn btn-ghost btn-lg">
@@ -50,9 +59,8 @@
         <section id="about" class="container">
             <h2 class="section-heading">About</h2>
             <div class="about-content">
-                <p style="font-size: var(--font-size-md); color: var(--color-text-primary); line-height: var(--line-height-relaxed);">
-                    <strong>We Make Minecraft Mods (java), Web Games and Web APPs, Android APPs and Android Games, Windows 11 Games and APPs.</strong>
-                </p>
+                <h3><strong>We Make Minecraft Mods (java), Web Games and Web APPs, Android APPs and Android Games, Windows 11 Games and APPs.</strong></h3>
+                <h2><strong>I Play <span class="game-chip minecraft">Minecraft</span>, <span class="game-chip cod">COD</span>, <span class="game-chip gtav">GTA V</span>, <span class="game-chip cs2">CS2</span>, <span class="game-chip amongus">Among Us</span>, <span class="game-chip phasmophobia">Phasmophobia</span> And More!</strong></h2>
                 <p style="color: var(--color-text-secondary);">
                     <span style="color: var(--color-text-muted);">From:</span> India &nbsp;·&nbsp;
                     <span style="color: var(--color-text-muted);">Languages:</span> English, Hindi and Sindhi
@@ -62,9 +70,6 @@
                     <a href="mailto:ruinlands.desk@gmail.com" style="color: var(--color-primary-red); text-decoration: none;">
                         ruinlands.desk@gmail.com
                     </a>
-                </p>
-                <p style="color: var(--color-text-muted); font-size: var(--font-size-sm);">
-                    Website: [Currently In Development]
                 </p>
             </div>
         </section>
@@ -191,6 +196,31 @@
         <section id="projects" class="container">
             <h2 class="section-heading">Projects</h2>
             <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon-wrapper">
+                            <img src="Projects/MSS/MSS.png" alt="More Storage Stack Icon" class="project-icon" />
+                        </div>
+                        <h3 class="project-title">More Storage Stack</h3>
+                    </div>
+                    <div class="project-body">
+                        <a href="Projects/MSS/index.html" class="btn-project-open" id="open-mss-btn">
+                            <span>Open</span>
+                            <svg class="open-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://modrinth.com/mod/morestoragestack" target="_blank" rel="noopener noreferrer" class="btn-platform btn-modrinth">
+                            <img src="https://cdn.simpleicons.org/modrinth/00AF5C" alt="" width="16" height="16" />
+                            <span>Modrinth</span>
+                        </a>
+                        <a href="https://www.curseforge.com/minecraft/mc-mods/morestoragestack" target="_blank" rel="noopener noreferrer" class="btn-platform btn-curseforge">
+                            <img src="https://cdn.simpleicons.org/curseforge/F16436" alt="" width="16" height="16" />
+                            <span>CurseForge</span>
+                        </a>
+                    </div>
+                    <div class="project-badge-mod">Mod</div>
+                </div>
                 <div class="project-card-placeholder">
                     <span class="coming-soon">Projects</span>
                     <span style="margin-top: var(--space-sm); font-size: var(--font-size-sm);">— coming soon —</span>

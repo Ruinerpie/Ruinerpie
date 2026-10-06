@@ -1,0 +1,21 @@
+{
+  "name": "Ruinerpie",
+  "short_name": "Pie",
+  "icons": [
+    {
+      "src": "/https://ruinerpie.github.io/Ruinerpie/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/https://ruinerpie.github.io/Ruinerpie/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#fd0a10",
+  "background_color": "#6600ff",
+  "display": "standalone"
+}
