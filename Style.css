@@ -697,7 +697,8 @@ body::before {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    justify-content: center;
     gap: var(--space-xl);
     max-width: 1200px;
     margin: 0 auto;
@@ -738,14 +739,14 @@ body::before {
 }
 
 .project-card:hover {
-    border-color: var(--color-primary-red);
+    border-color: #ff0000;
 }
 
 .project-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
+    justify-content: flex-start;
+    gap: var(--space-md);
     width: 100%;
 }
 
@@ -848,8 +849,8 @@ body::before {
     background: #00AF5C;
     color: #ffffff;
     border-color: #00AF5C;
-    box-shadow: 0 0 15px rgba(0, 175, 92, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 175, 92, 0.6);
+    transform: scale(1.08);
 }
 
 .btn-modrinth img {
@@ -870,8 +871,8 @@ body::before {
     background: #F16436;
     color: #ffffff;
     border-color: #F16436;
-    box-shadow: 0 0 15px rgba(241, 100, 54, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(241, 100, 54, 0.6);
+    transform: scale(1.08);
 }
 
 .btn-curseforge img {
