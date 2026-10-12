@@ -17,7 +17,6 @@
 - **Snapchat:** [Not Recommend]
 - **Pinterest:** https://pinterest.com/ruinerpie/
 - **Reddit:** https://www.reddit.com/user/Ruinerpie/
-- **LinkedIn:** https://www.linkedin.com/in/ruinerpie
 - **GitHub:** https://github.com/Ruinerpie
 - **Twitch:** https://www.twitch.tv/ruinerpie
 - **Steam:** https://steamcommunity.com/id/Ruinerpie/
@@ -26,3 +25,5 @@
 - **Discord:** https://discord.gg/gRgfUZwSUf
 - **Spotify:** https://open.spotify.com/user/31wpr57tmtvdd4vm3llaxyp7khmm
 - **Telegram:** https://t.me/ruinerpie , https://t.me/ruinerpie?direct
+- **Modrinth:** https://modrinth.com/user/ruinerpie
+- **CurseForge:** https://www.curseforge.com/members/ruinerpie/projects
