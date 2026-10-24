@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotionBlurBeast</title>
+    <meta name="description" content="MotionBlurBeast (MBB) is a Minecraft Mod created by Ruinerpie.">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body>
+    <a href="../../index.html#projects" class="btn-back" title="Go Back">X</a>
+    
+    <div class="project-container">
+        <div class="project-header">
+            <div class="icon-container">
+                <img src="MBB.png" alt="MotionBlurBeast Icon" />
+            </div>
+            <h1>MotionBlurBeast</h1>
+        </div>
+        
+        <p class="description">
+            Motion Blur Beast Is Inspired By Complementary Unbound Shaders. Adds Motion Blur Effect In-Game.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+            <div class="action-buttons">
+                <a href="https://modrinth.com/mod/mbb-pie" target="_blank" class="btn btn-modrinth">
+                    <img src="https://cdn.simpleicons.org/modrinth/00AF5C" alt="" width="18" height="18" />
+                    Get on Modrinth
+                </a>
+                <a href="https://www.curseforge.com/minecraft/mc-mods/motion-blur-beast" target="_blank" class="btn btn-curseforge">
+                    <img src="https://cdn.simpleicons.org/curseforge/F16436" alt="" width="18" height="18" />
+                    Get on CurseForge
+                </a>
+            </div>
+            <a href="https://discord.gg/g2NVCrxfUE" target="_blank" class="btn btn-discord">
+                <img src="https://cdn.simpleicons.org/discord/5865F2" alt="" width="18" height="18" />
+                Mod Support
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const pCanvas = document.createElement('canvas');
+        pCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+        document.body.prepend(pCanvas);
+        const pCtx = pCanvas.getContext('2d');
+
+        function pResize() {
+            pCanvas.width = window.innerWidth;
+            pCanvas.height = window.innerHeight;
+        }
+        pResize();
+        window.addEventListener('resize', pResize);
+
+        const projectParticles = [];
+        let pMouseX = -9999;
+        let pMouseY = -9999;
+
+        window.addEventListener('mousemove', function(e) {
+            pMouseX = e.clientX;
+            pMouseY = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', function() {
+            pMouseX = -9999;
+            pMouseY = -9999;
+        });
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion) {
+            for (let i = 0; i < 90; i++) {
+                projectParticles.push({
+                    x: Math.random() * pCanvas.width,
+                    y: Math.random() * pCanvas.height,
+                    baseVx: (Math.random() - 0.5) * 0.15,
+                    baseVy: 0.05 + Math.random() * 0.15,
+                    vx: (Math.random() - 0.5) * 0.15,
+                    vy: 0.05 + Math.random() * 0.15,
+                    size: 4 + Math.random() * 3,
+                    alpha: 0.35 + Math.random() * 0.25,
+                    cr: 235,
+                    cg: 65,
+                    cb: 115
+                });
+            }
+        }
+
+        function pRender() {
+            pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+            if (!prefersReducedMotion) {
+                for (const p of projectParticles) {
+                    if (pMouseX > -1000 && pMouseY > -1000) {
+                        const cdx = p.x - pMouseX;
+                        const cdy = p.y - pMouseY;
+                        const cdist = Math.hypot(cdx, cdy) || 1;
+                        if (cdist < 70) {
+                            const repSpeed = (1 - cdist / 70) * 0.28;
+                            const nx = cdx / cdist;
+                            const ny = cdy / cdist;
+                            p.vx = p.vx * 0.85 + nx * repSpeed;
+                            p.vy = p.vy * 0.85 + ny * repSpeed;
+                        }
+                    }
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    p.vx = p.vx * 0.98 + p.baseVx * 0.02;
+                    p.vy = p.vy * 0.98 + p.baseVy * 0.02;
+
+                    if (p.y > pCanvas.height + 15) { p.y = -10; p.x = Math.random() * pCanvas.width; }
+                    if (p.y < -15) { p.y = pCanvas.height + 10; p.x = Math.random() * pCanvas.width; }
+                    if (p.x < -15) { p.x = pCanvas.width + 10; p.y = Math.random() * pCanvas.height; }
+                    if (p.x > pCanvas.width + 15) { p.x = -10; p.y = Math.random() * pCanvas.height; }
+
+                    pCtx.fillStyle = 'rgba(' + Math.round(p.cr) + ',' + Math.round(p.cg) + ',' + Math.round(p.cb) + ',' + p.alpha + ')';
+                    pCtx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+                }
+            }
+            requestAnimationFrame(pRender);
+        }
+        pRender();
+
+        const pClickAudio = new Audio('../../sounds/Click.ogg');
+        pClickAudio.volume = 0.55;
+
+        const pNetheriteAudio = new Audio('../../sounds/Back.ogg');
+        pNetheriteAudio.volume = 0.7;
+
+        const pVaultAudio = new Audio('../../sounds/Modrinth.ogg');
+        pVaultAudio.volume = 0.65;
+
+        const pTeleportAudio = new Audio('../../sounds/CurseForge.ogg');
+        pTeleportAudio.volume = 0.65;
+
+        const pDiscordAudio = new Audio('../../sounds/Discord.mps');
+        pDiscordAudio.volume = 0.6;
+
+        function playProjectSound(audio) {
+            const s = audio.cloneNode();
+            s.volume = audio.volume;
+            s.play().catch(() => {});
+        }
+
+        document.addEventListener('click', function(e) {
+            const backBtn = e.target.closest('.btn-back');
+            if (backBtn) {
+                e.preventDefault();
+                playProjectSound(pNetheriteAudio);
+                setTimeout(function() {
+                    if (window.history.length > 1) {
+                        window.history.back();
+                    } else {
+                        window.location.href = backBtn.getAttribute('href') || '../../index.html#projects';
+                    }
+                }, 200);
+                return;
+            }
+
+            const modrinth = e.target.closest('.btn-modrinth');
+            if (modrinth) {
+                playProjectSound(pVaultAudio);
+                return;
+            }
+
+            const curseforge = e.target.closest('.btn-curseforge');
+            if (curseforge) {
+                playProjectSound(pTeleportAudio);
+                return;
+            }
+
+            const discord = e.target.closest('.btn-discord');
+            if (discord) {
+                playProjectSound(pDiscordAudio);
+                return;
+            }
+
+            const general = e.target.closest('button, .btn, a');
+            if (general) {
+                playProjectSound(pClickAudio);
+            }
+        });
+    </script>
+</body>
+</html>

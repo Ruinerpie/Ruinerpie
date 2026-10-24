@@ -2,9 +2,9 @@ const topBar = document.querySelector('.top-bar');
 const SCROLL_THRESHOLD = 150;
 let ticking = false;
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     if (!ticking) {
-        window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function () {
             if (window.scrollY > SCROLL_THRESHOLD) {
                 topBar.classList.add('is-collapsed');
             } else {
@@ -64,7 +64,7 @@ let prevMouseY = -9999;
 let isMouseDown = false;
 let isHoveringAnyCard = false;
 
-window.addEventListener('mousedown', function(e) {
+window.addEventListener('mousedown', function (e) {
     if (e.button === 0) {
         if (!e.target.closest('a, button, input, textarea, select, .social-icon, .social-text, .social-empty, .btn, .faq-item, .project-card, [role="button"]')) {
             isMouseDown = true;
@@ -76,13 +76,13 @@ window.addEventListener('mousedown', function(e) {
     }
 });
 
-window.addEventListener('mouseup', function(e) {
+window.addEventListener('mouseup', function (e) {
     if (e.button === 0) {
         isMouseDown = false;
     }
 });
 
-window.addEventListener('mousemove', function(e) {
+window.addEventListener('mousemove', function (e) {
     prevMouseX = mouseX;
     prevMouseY = mouseY;
     mouseX = e.clientX;
@@ -93,7 +93,7 @@ window.addEventListener('mousemove', function(e) {
     }
 });
 
-window.addEventListener('mouseleave', function() {
+window.addEventListener('mouseleave', function () {
     mouseX = -9999;
     mouseY = -9999;
     prevMouseX = -9999;
@@ -390,7 +390,7 @@ function triggerHoverEffect(card) {
     }
 
     if (hoverSpawnInterval) clearInterval(hoverSpawnInterval);
-    hoverSpawnInterval = setInterval(function() {
+    hoverSpawnInterval = setInterval(function () {
         const currentRect = card.getBoundingClientRect();
         if (currentChosenMode === 1) {
             spawnVectorDashes(currentRect, rgb);
@@ -420,7 +420,7 @@ function stopHoverEffects(card) {
         if (card) releaseBlackHoleExplosion(card);
         activeGravityCard = null;
         if (resetGravityTimeout) clearTimeout(resetGravityTimeout);
-        resetGravityTimeout = setTimeout(function() {
+        resetGravityTimeout = setTimeout(function () {
             currentChosenMode = 0;
         }, 4000);
     } else {
@@ -702,7 +702,7 @@ function render() {
 render();
 
 document.querySelectorAll('.social-icon, .social-text, .social-empty').forEach(el => {
-    el.addEventListener('mouseenter', function() {
+    el.addEventListener('mouseenter', function () {
         stopHoverEffects(this);
         triggerHoverEffect(this);
         const tooltip = this.querySelector('.tooltip-content');
@@ -735,18 +735,10 @@ document.querySelectorAll('.social-icon, .social-text, .social-empty').forEach(e
             }
         }
     });
-    el.addEventListener('mouseleave', function() {
+    el.addEventListener('mouseleave', function () {
         stopHoverEffects(this);
     });
 });
-
-const openPancreasBtn = document.getElementById('open-pancreas-btn');
-if (openPancreasBtn) {
-    openPancreasBtn.addEventListener('click', function(e) {
-        const rect = this.getBoundingClientRect();
-        triggerHoverEffect(this);
-    });
-}
 
 const previewModal = document.createElement('div');
 previewModal.className = 'project-preview-modal';
@@ -755,7 +747,7 @@ previewModal.appendChild(previewImg);
 document.body.appendChild(previewModal);
 
 document.querySelectorAll('.project-icon-wrapper').forEach(wrapper => {
-    wrapper.addEventListener('mouseenter', function() {
+    wrapper.addEventListener('mouseenter', function () {
         const img = this.querySelector('img');
         if (img) {
             previewImg.src = img.src;
@@ -763,7 +755,87 @@ document.querySelectorAll('.project-icon-wrapper').forEach(wrapper => {
             previewModal.classList.add('is-active');
         }
     });
-    wrapper.addEventListener('mouseleave', function() {
+    wrapper.addEventListener('mouseleave', function () {
         previewModal.classList.remove('is-active');
     });
+});
+
+const basePath = window.location.pathname.includes('/Projects/') ? '../../' : '';
+const mcClickAudio = new Audio(basePath + 'sounds/Click.ogg');
+mcClickAudio.volume = 0.55;
+
+const mcBackAudio = new Audio(basePath + 'sounds/Back.ogg');
+mcBackAudio.volume = 0.55;
+
+const mcReleaseAudio = new Audio(basePath + 'sounds/Open.ogg');
+mcReleaseAudio.volume = 0.65;
+const mcVaultAudio = new Audio(basePath + 'sounds/Modrinth.ogg');
+mcVaultAudio.volume = 0.6;
+const mcTeleportAudio = new Audio(basePath + 'sounds/CurseForge.ogg');
+mcTeleportAudio.volume = 0.6;
+const discordAudio = new Audio(basePath + 'sounds/Discord.mps');
+discordAudio.volume = 0.7;
+
+
+
+function playSound(audio) {
+    const s = audio.cloneNode();
+    s.volume = audio.volume;
+    s.play().catch(() => { });
+}
+
+document.addEventListener('click', function (e) {
+    const discordBtn = e.target.closest('.btn-discord, .btn-discord-lg, .social-icon.discord');
+    if (discordBtn) {
+        playSound(discordAudio);
+        return;
+    }
+
+    const modrinthBtn = e.target.closest('.btn-modrinth, .social-icon.modrinth');
+    if (modrinthBtn) {
+        playSound(mcVaultAudio);
+        return;
+    }
+
+    const curseforgeBtn = e.target.closest('.btn-curseforge, .social-icon.curseforge');
+    if (curseforgeBtn) {
+        playSound(mcTeleportAudio);
+        return;
+    }
+
+    const projectOpenBtn = e.target.closest('.btn-project-open');
+    if (projectOpenBtn) {
+        playSound(mcReleaseAudio);
+        const href = projectOpenBtn.getAttribute('href');
+        const target = projectOpenBtn.getAttribute('target');
+        if (href && !target && !e.defaultPrevented && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey) {
+            e.preventDefault();
+            setTimeout(function () {
+                window.location.href = href;
+            }, 120);
+        }
+        return;
+    }
+
+    const clickable = e.target.closest('button, .btn, a, .social-icon, .social-text, .social-empty, .nav-link');
+    if (clickable) {
+        const isBackButton = e.target.closest('.btn-back') ||
+                             (clickable.textContent && clickable.textContent.toLowerCase().includes('back')) ||
+                             (clickable.getAttribute('href') && clickable.getAttribute('href').endsWith('index.html'));
+
+        if (isBackButton) {
+            const href = clickable.getAttribute('href');
+            if (href && !clickable.getAttribute('target')) {
+                e.preventDefault();
+                playSound(mcBackAudio);
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 200);
+            } else {
+                playSound(mcBackAudio);
+            }
+        } else {
+            playSound(mcClickAudio);
+        }
+    }
 });
