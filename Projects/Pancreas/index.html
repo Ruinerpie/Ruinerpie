@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <meta name="description" content="Pancreas is a Minecraft Mod created by Ruinerpie.">
     <link rel="stylesheet" href="../project.css">
 </head>
+
 <body>
     <a href="../../index.html#projects" class="btn-back" title="Go Back">X</a>
-    
+
     <div class="project-container">
         <div class="project-header">
             <div class="icon-container">
@@ -17,22 +19,26 @@
             </div>
             <h1>Pancreas</h1>
         </div>
-        
+
         <p class="description">
             A FANTASTIC MOD. Pancreas Has A Ton Of Tweaks To Improve User Experience And QoL Features.
         </p>
 
         <div class="video-container">
-            <iframe width="2325" height="987" src="https://www.youtube.com/embed/-Nm-XUsv_dc" title="Pancreas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="2325" height="987" src="https://www.youtube.com/embed/-Nm-XUsv_dc" title="Pancreas"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        
+
         <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
             <div class="action-buttons">
                 <a href="https://modrinth.com/mod/pancreas-ruinerpie" target="_blank" class="btn btn-modrinth">
                     <img src="https://cdn.simpleicons.org/modrinth/00AF5C" alt="" width="18" height="18" />
                     Get on Modrinth
                 </a>
-                <a href="https://www.curseforge.com/minecraft/mc-mods/pancreas" target="_blank" class="btn btn-curseforge">
+                <a href="https://www.curseforge.com/minecraft/mc-mods/pancreas" target="_blank"
+                    class="btn btn-curseforge">
                     <img src="https://cdn.simpleicons.org/curseforge/F16436" alt="" width="18" height="18" />
                     Get on CurseForge
                 </a>
@@ -52,19 +58,29 @@
                 Pan Updates Info
             </a>
             <div class="text-state-badge">Upcoming: Pancreas V2 v1.3</div>
-        <div class="text-state-badge">Current: Pancreas V2 Alpha Is Out</div>
+            <div class="text-state-badge">Current: Pancreas V2 Alpha Is Out</div>
         </div>
 
-        <div class="features-section">
+        <div class="features-section" id="features-section">
             <h2>What Pancreas Has</h2>
             <div class="tabs-container">
-                <button class="tab-btn active" onclick="openTab(event, 'tab-tweaks')">Tweaks</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab-settings')">Settings</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab-gui')">GUI</button>
+                <button class="tab-btn" data-tab="tab-tweaks"
+                    onclick="openTab(event, 'tab-tweaks')">Tweaks</button>
+                <button class="tab-btn" data-tab="tab-settings"
+                    onclick="openTab(event, 'tab-settings')">Settings</button>
+                <button class="tab-btn" data-tab="tab-gui" onclick="openTab(event, 'tab-gui')">GUI</button>
             </div>
-            
-            <div id="tab-tweaks" class="tab-content active">
-                <ul class="tweak-list">
+
+            <div class="tweak-subfilters" id="tweak-subfilters">
+                <button class="subfilter-btn" id="subfilter-recommend" onclick="setTweakFilter('recommend')">Recommended</button>
+                <button class="subfilter-btn active" id="subfilter-all" onclick="setTweakFilter('all')">All</button>
+                <button class="subfilter-btn" id="subfilter-alphabetic" onclick="setTweakFilter('alphabetic')">Alphabetic</button>
+            </div>
+
+            <div id="tab-tweaks" class="tab-content">
+                <div class="tweak-header-count"># 12 Total Tweaks</div>
+                <div id="tweak-container">
+                    <ul class="tweak-list">
                     <li>
                         <span class="sn">1.</span>
                         <div class="tweak-content">
@@ -93,15 +109,304 @@
                             <p class="tweak-desc">Lets you customize your block outlines and even sides.</p>
                         </div>
                     </li>
+                    <li>
+                        <span class="sn">5.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">Zoomer</button>
+                            <p class="tweak-desc">Smooth, customizable camera zoom.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">6.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">FreeKam</button>
+                            <p class="tweak-desc">Detaches camera for free camera movement.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">7.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">F5Plus</button>
+                            <p class="tweak-desc">Control and customize third-person perspective.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">8.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">GammaOverride</button>
+                            <p class="tweak-desc">Bypasses standard brightness limit to provide full visibility.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">9.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">HitCounter</button>
+                            <p class="tweak-desc">HUD counter for player hits against mobs, players, and entities.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">10.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">ReFill Slot</button>
+                            <p class="tweak-desc">Auto refill stackable items in hotbar and offhand slots.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">11.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">Arsenal</button>
+                            <p class="tweak-desc">Automatically swaps to the best tool for the targeted block.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sn">12.</span>
+                        <div class="tweak-content">
+                            <button class="tweak-name-btn" onclick="toggleTweak(this)">HUD</button>
+                            <p class="tweak-desc">Heads-Up Display.</p>
+                        </div>
+                    </li>
                 </ul>
+                </div>
             </div>
-            
-            <div id="tab-settings" class="tab-content">
-                <p>Settings content goes here. (TO DO)</p>
+
+            <div id="tab-settings" class="tab-content tab-content-sim">
+                <div class="sim-window" id="sim-window-settings">
+                    <div class="sim-topbar">
+                        <div class="sim-search-box">
+                            <input type="text" placeholder="Search tweaks or settings..." />
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div class="sim-top-nav">
+                            <button class="sim-nav-btn" onclick="openTab(event, 'tab-tweaks')">Home</button>
+                            <button class="sim-nav-btn" onclick="openTab(event, 'tab-tweaks')">Tweaks</button>
+                            <button class="sim-nav-btn active">Settings</button>
+                            <button class="sim-nav-btn" onclick="openTab(event, 'tab-gui')">GUI</button>
+                        </div>
+                    </div>
+                    <div class="sim-body" id="sim-body-settings">
+                        <div class="sim-panel-title">Global Mod Settings</div>
+                        <div class="sim-row">
+                            <span class="sim-label">GUI Opacity</span>
+                            <div class="sim-slider-container">
+                                <span class="sim-star" id="sim-fav-star" onclick="toggleSimFav(this)">☆</span>
+                                <span class="sim-slider-val" id="sim-opacity-val">30%</span>
+                                <div class="sim-slider-track" id="sim-slider-track" onclick="updateSimOpacity(event)">
+                                    <div class="sim-slider-fill" id="sim-slider-fill" style="width: 30%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sim-row">
+                            <span class="sim-label">Show last Tweak On Open</span>
+                            <button class="sim-toggle-btn on" id="sim-toggle-last-tweak"
+                                onclick="toggleSimState(this)">True</button>
+                        </div>
+                        <div class="sim-btn-group">
+                            <button class="sim-action-btn" onclick="saveSimConfig(this)">Save Config</button>
+                            <button class="sim-action-btn secondary" onclick="resetSimSettings()">Reset All</button>
+                        </div>
+                    </div>
+                    <div class="sim-favorites-pane">
+                        <div class="sim-fav-header">
+                            <span class="sim-fav-title">Favorites</span>
+                            <button class="sim-fav-tab active" onclick="setSimFavFilter(this, 'ALL')">ALL</button>
+                            <button class="sim-fav-tab" onclick="setSimFavFilter(this, 'Tweaks')">Tweaks</button>
+                            <button class="sim-fav-tab" onclick="setSimFavFilter(this, 'Settings')">Settings</button>
+                        </div>
+                        <div class="sim-fav-text" id="sim-fav-status">No favorites added yet. Click ☆ next to any tweak
+                            or setting to bookmark it!</div>
+                    </div>
+                </div>
             </div>
-            
-            <div id="tab-gui" class="tab-content">
-                <p>GUI content goes here. (TO DO)</p>
+
+            <div id="tab-gui" class="tab-content tab-content-sim">
+                <div class="sim-window" id="sim-window-gui">
+                    <div class="sim-topbar">
+                        <div class="sim-search-box">
+                            <input type="text" placeholder="Search tweaks or settings..." />
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div class="sim-top-nav">
+                            <button class="sim-nav-btn" onclick="openTab(event, 'tab-tweaks')">Home</button>
+                            <button class="sim-nav-btn" onclick="openTab(event, 'tab-tweaks')">Tweaks</button>
+                            <button class="sim-nav-btn" onclick="openTab(event, 'tab-settings')">Settings</button>
+                            <button class="sim-nav-btn active">GUI</button>
+                        </div>
+                    </div>
+                    <div class="sim-body" id="sim-body-gui">
+                        <div class="sim-panel-title">GUI & Visual Customization</div>
+
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Interface Font:</span>
+                            <div class="sim-dropdown-box">
+                                <div class="sim-dropdown-selected" onclick="toggleSimDropdown('sim-font-dd')">
+                                    <span id="sim-font-label">Default Minecraft</span> <span>▼</span>
+                                </div>
+                                <ul class="sim-dropdown-list" id="sim-font-dd">
+                                    <li onclick="setSimFont('Default Minecraft', 'inherit')">Default Minecraft</li>
+                                    <li onclick="setSimFont('Qrafty\'s Capitalized', '\'Orbitron\', sans-serif')">
+                                        Qrafty's Capitalized</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sim-section-header">
+                            <span class="sim-section-title">TEXT</span>
+                            <div class="sim-section-line"></div>
+                        </div>
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Text Target:</span>
+                            <div class="sim-dropdown-box">
+                                <div class="sim-dropdown-selected" onclick="toggleSimDropdown('sim-text-dd')">
+                                    <span id="sim-text-target-label">Selected</span> <span>▼</span>
+                                </div>
+                                <ul class="sim-dropdown-list" id="sim-text-dd">
+                                    <li onclick="setSimTextTarget('Selected', '#ff0000')">Selected</li>
+                                    <li onclick="setSimTextTarget('Hovered', '#ffffff')">Hovered</li>
+                                    <li onclick="setSimTextTarget('Normal', '#a0a0a0')">Normal</li>
+                                    <li onclick="setSimTextTarget('Other', '#c29090')">Other</li>
+                                    <li onclick="setSimTextTarget('SubText', '#fff865')">SubText</li>
+                                </ul>
+                            </div>
+                            <div class="sim-color-swatch" id="sim-text-swatch" style="background: #ff0000;"
+                                onclick="openSimColorPicker('text')"></div>
+                            <button class="sim-sub-btn" onclick="openSimColorPicker('text')">Change Colour</button>
+                            <button class="sim-sub-btn reset" onclick="resetSimColor('text')">Reset</button>
+                        </div>
+
+                        <div class="sim-section-header">
+                            <span class="sim-section-title">BACKGROUND</span>
+                            <div class="sim-section-line"></div>
+                        </div>
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Main Background:</span>
+                            <div class="sim-color-swatch" id="sim-mainbg-swatch" style="background: #000000;"
+                                onclick="openSimColorPicker('mainBg')"></div>
+                            <button class="sim-sub-btn" onclick="openSimColorPicker('mainBg')">Change Colour</button>
+                            <button class="sim-sub-btn reset" onclick="resetSimColor('mainBg')">Reset</button>
+                        </div>
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Head Background:</span>
+                            <div class="sim-color-swatch" id="sim-headbg-swatch" style="background: #0f0020;"
+                                onclick="openSimColorPicker('headBg')"></div>
+                            <button class="sim-sub-btn" onclick="openSimColorPicker('headBg')">Change Colour</button>
+                            <button class="sim-sub-btn reset" onclick="resetSimColor('headBg')">Reset</button>
+                        </div>
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Tab Background:</span>
+                            <div class="sim-dropdown-box">
+                                <div class="sim-dropdown-selected" onclick="toggleSimDropdown('sim-tabbg-dd')">
+                                    <span id="sim-tabbg-label">Selected</span> <span>▼</span>
+                                </div>
+                                <ul class="sim-dropdown-list" id="sim-tabbg-dd">
+                                    <li onclick="setSimTabBgTarget('Selected', '#250000')">Selected</li>
+                                    <li onclick="setSimTabBgTarget('Hovered', '#370a0a')">Hovered</li>
+                                    <li onclick="setSimTabBgTarget('Normal', '#250000')">Normal</li>
+                                </ul>
+                            </div>
+                            <div class="sim-color-swatch" id="sim-tabbg-swatch" style="background: #250000;"
+                                onclick="openSimColorPicker('tabBg')"></div>
+                            <button class="sim-sub-btn" onclick="openSimColorPicker('tabBg')">Change Colour</button>
+                            <button class="sim-sub-btn reset" onclick="resetSimColor('tabBg')">Reset</button>
+                        </div>
+
+                        <div style="margin-top: 6px;">
+                            <button class="sim-accordion-toggle" id="sim-btn-accordion"
+                                onclick="toggleSimButtonsAccordion()">▶ Buttons</button>
+                            <div id="sim-buttons-subpane"
+                                style="display: none; padding-left: 14px; margin-bottom: 8px;">
+                                <div class="sim-control-row">
+                                    <span class="sim-control-label">Buttons State:</span>
+                                    <div class="sim-dropdown-box">
+                                        <div class="sim-dropdown-selected"
+                                            onclick="toggleSimDropdown('sim-btnstate-dd')">
+                                            <span id="sim-btnstate-label">Normal</span> <span>▼</span>
+                                        </div>
+                                        <ul class="sim-dropdown-list" id="sim-btnstate-dd">
+                                            <li onclick="setSimBtnState('Normal', '#1b0020')">Normal</li>
+                                            <li onclick="setSimBtnState('Selected', '#23002a')">Selected</li>
+                                            <li onclick="setSimBtnState('Hovered', '#1e0024')">Hovered</li>
+                                            <li onclick="setSimBtnState('Other', '#0f0020')">Other</li>
+                                        </ul>
+                                    </div>
+                                    <div class="sim-color-swatch" id="sim-btnstate-swatch" style="background: #1b0020;"
+                                        onclick="openSimColorPicker('btnState')"></div>
+                                    <button class="sim-sub-btn" onclick="openSimColorPicker('btnState')">Change
+                                        Colour</button>
+                                    <button class="sim-sub-btn reset" onclick="resetSimColor('btnState')">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-section-header">
+                            <span class="sim-section-title">BORDERS</span>
+                            <div class="sim-section-line"></div>
+                        </div>
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Border Target:</span>
+                            <div class="sim-dropdown-box">
+                                <div class="sim-dropdown-selected" onclick="toggleSimDropdown('sim-border-dd')">
+                                    <span id="sim-border-label">Main</span> <span>▼</span>
+                                </div>
+                                <ul class="sim-dropdown-list" id="sim-border-dd">
+                                    <li onclick="setSimBorderTarget('Main', '#25002e')">Main</li>
+                                    <li onclick="setSimBorderTarget('Tabs', '#25002e')">Tabs</li>
+                                    <li onclick="setSimBorderTarget('Buttons', '#25002e')">Buttons</li>
+                                </ul>
+                            </div>
+                            <div class="sim-color-swatch" id="sim-border-swatch" style="background: #25002e;"
+                                onclick="openSimColorPicker('border')"></div>
+                            <button class="sim-sub-btn" onclick="openSimColorPicker('border')">Change Colour</button>
+                            <button class="sim-sub-btn reset" onclick="resetSimColor('border')">Reset</button>
+                        </div>
+
+                        <div class="sim-section-header">
+                            <span class="sim-section-title">ELEMENTS</span>
+                            <div class="sim-section-line"></div>
+                        </div>
+                        <div class="sim-control-row">
+                            <span class="sim-control-label">Elements:</span>
+                            <div class="sim-dropdown-box">
+                                <div class="sim-dropdown-selected" onclick="toggleSimDropdown('sim-elem-dd')">
+                                    <span id="sim-elem-label">Selected</span> <span>▼</span>
+                                </div>
+                                <ul class="sim-dropdown-list" id="sim-elem-dd">
+                                    <li onclick="setSimElemTarget('Selected', '#1b0020')">Selected</li>
+                                    <li onclick="setSimElemTarget('Hovered', '#2a0032')">Hovered</li>
+                                    <li onclick="setSimElemTarget('Normal', '#1b0020')">Normal</li>
+                                </ul>
+                            </div>
+                            <div class="sim-color-swatch" id="sim-elem-swatch" style="background: #1b0020;"
+                                onclick="openSimColorPicker('elem')"></div>
+                            <button class="sim-sub-btn" onclick="openSimColorPicker('elem')">Change Colour</button>
+                            <button class="sim-sub-btn reset" onclick="resetSimColor('elem')">Reset</button>
+                        </div>
+
+                        <div style="margin-top: 18px;">
+                            <button class="sim-sub-btn reset" style="padding: 5px 14px;"
+                                onclick="resetAllSimGui()">Reset All GUI Colors</button>
+                        </div>
+                    </div>
+
+                    <div class="sim-modal-overlay" id="sim-modal-overlay" onclick="closeSimColorPicker()"></div>
+                    <div class="sim-color-picker-modal" id="sim-cp-modal">
+                        <div class="sim-cp-header">
+                            <span id="sim-cp-target-title">Colour Picker</span>
+                            <span class="sim-cp-close" onclick="closeSimColorPicker()">✕</span>
+                        </div>
+                        <div class="sim-cp-body">
+                            <div class="sim-cp-row">
+                                <span class="sim-cp-label">HEX:</span>
+                                <input type="text" class="sim-cp-input" id="sim-cp-hex" value="#ff0000"
+                                    oninput="onSimHexInput(this.value)" />
+                                <div class="sim-cp-preview" id="sim-cp-preview" style="background: #ff0000;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">
+                                <button class="sim-sub-btn" onclick="applySimColor()">Apply</button>
+                                <button class="sim-sub-btn reset" onclick="closeSimColorPicker()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -117,8 +422,149 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+
+            var targetContent = document.getElementById(tabName);
+            if (targetContent) {
+                targetContent.classList.add("active");
+            }
+
+            var targetSiteBtn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (targetSiteBtn) {
+                targetSiteBtn.classList.add("active");
+            } else if (evt && evt.currentTarget && evt.currentTarget.classList.contains("tab-btn")) {
+                evt.currentTarget.classList.add("active");
+            }
+
+            var subfilters = document.getElementById("tweak-subfilters");
+            if (subfilters) {
+                if (tabName === 'tab-tweaks') {
+                    subfilters.classList.add("show");
+                } else {
+                    subfilters.classList.remove("show");
+                }
+            }
+
+            var simName = tabName.replace('tab-', '');
+            document.querySelectorAll('.sim-nav-btn').forEach(btn => {
+                var btnText = btn.textContent.trim().toLowerCase();
+                if (btnText === simName) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            setTimeout(function() {
+                if (tabName === 'tab-tweaks') {
+                    var sec = document.getElementById("features-section");
+                    if (sec) {
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                } else {
+                    window.scrollTo({
+                        top: document.documentElement.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 60);
+        }
+
+        const PANCREAS_TWEAKS = [
+            { id: 1, name: "FRC (FastRightClick)", desc: "Lets you place blocks faster." },
+            { id: 2, name: "EdgeShift", desc: "Prevents you from falling off block edges." },
+            { id: 3, name: "Run", desc: "Lets you sprint all the time, without even holding the 'CTRL' key." },
+            { id: 4, name: "BlockOutlines", desc: "Lets you customize your block outlines and even sides." },
+            { id: 5, name: "Zoomer", desc: "Smooth, customizable camera zoom." },
+            { id: 6, name: "FreeKam", desc: "Detaches camera for free camera movement." },
+            { id: 7, name: "F5Plus", desc: "Control and customize third-person perspective." },
+            { id: 8, name: "GammaOverride", desc: "Bypasses standard brightness limit to provide full visibility." },
+            { id: 9, name: "HitCounter", desc: "HUD counter for player hits against mobs, players, and entities." },
+            { id: 10, name: "ReFill Slot", desc: "Auto refill stackable items in hotbar and offhand slots." },
+            { id: 11, name: "Arsenal", desc: "Automatically swaps to the best tool for the targeted block." },
+            { id: 12, name: "HUD", desc: "Heads-Up Display." }
+        ];
+
+        const RECOMMEND_GROUPS = [
+            {
+                title: "SinglePlayer Recommended",
+                customClass: "",
+                tweakNames: ["FRC (FastRightClick)", "EdgeShift", "ReFill Slot"]
+            },
+            {
+                title: '<span class="word-may">May</span> Use in Multiplayer Servers <span class="bracket-note">(if the Server Allows)</span>',
+                customClass: "",
+                tweakNames: ["HUD", "ReFill Slot", "Arsenal", "FreeKam", "GammaOverride"]
+            },
+            {
+                title: "Can Use On Servers",
+                customClass: "group-servers",
+                tweakNames: ["BlockOutlines", "F5Plus", "Zoomer", "HitCounter", "Run"]
+            }
+        ];
+
+        let currentTweakFilter = 'all';
+
+        function renderTweaks(filterMode) {
+            currentTweakFilter = filterMode;
+            const container = document.getElementById("tweak-container");
+            if (!container) return;
+
+            document.querySelectorAll('.subfilter-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`subfilter-${filterMode}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            if (filterMode === 'all') {
+                let html = '<ul class="tweak-list">';
+                PANCREAS_TWEAKS.forEach(t => {
+                    html += `
+                        <li>
+                            <span class="sn">${t.id}.</span>
+                            <div class="tweak-content">
+                                <button class="tweak-name-btn" onclick="toggleTweak(this)">${t.name}</button>
+                                <p class="tweak-desc">${t.desc}</p>
+                            </div>
+                        </li>`;
+                });
+                html += '</ul>';
+                container.innerHTML = html;
+            } else if (filterMode === 'recommend' || filterMode === 'alphabetic') {
+                let html = '';
+                let counter = 1;
+
+                RECOMMEND_GROUPS.forEach(group => {
+                    const extraClass = group.customClass ? ` ${group.customClass}` : '';
+                    html += `<div class="tweak-group-title${extraClass}">${group.title}</div>`;
+                    html += '<ul class="tweak-list">';
+
+                    let tweaksInGroup = group.tweakNames.map(name => {
+                        return PANCREAS_TWEAKS.find(t => t.name.toLowerCase() === name.toLowerCase()) || { name: name, desc: "" };
+                    });
+
+                    if (filterMode === 'alphabetic') {
+                        tweaksInGroup = [...tweaksInGroup].sort((a, b) => a.name.localeCompare(b.name));
+                    }
+
+                    const showDescClass = (filterMode === 'recommend' || filterMode === 'alphabetic') ? ' show' : '';
+                    tweaksInGroup.forEach(t => {
+                        html += `
+                            <li>
+                                <span class="sn">${counter++}.</span>
+                                <div class="tweak-content">
+                                    <button class="tweak-name-btn" onclick="toggleTweak(this)">${t.name}</button>
+                                    <p class="tweak-desc${showDescClass}">${t.desc}</p>
+                                </div>
+                            </li>`;
+                    });
+
+                    html += '</ul>';
+                });
+
+                container.innerHTML = html;
+            }
+        }
+
+        function setTweakFilter(filterMode) {
+            renderTweaks(filterMode);
         }
 
         function toggleTweak(btn) {
@@ -146,12 +592,12 @@
         let pMouseX = -9999;
         let pMouseY = -9999;
 
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('mousemove', function (e) {
             pMouseX = e.clientX;
             pMouseY = e.clientY;
         });
 
-        window.addEventListener('mouseleave', function() {
+        window.addEventListener('mouseleave', function () {
             pMouseX = -9999;
             pMouseY = -9999;
         });
@@ -229,15 +675,15 @@
         function playProjectSound(audio) {
             const s = audio.cloneNode();
             s.volume = audio.volume;
-            s.play().catch(() => {});
+            s.play().catch(() => { });
         }
 
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const backBtn = e.target.closest('.btn-back');
             if (backBtn) {
                 e.preventDefault();
                 playProjectSound(pNetheriteAudio);
-                setTimeout(function() {
+                setTimeout(function () {
                     if (window.history.length > 1) {
                         window.history.back();
                     } else {
@@ -265,11 +711,293 @@
                 return;
             }
 
-            const general = e.target.closest('button, .btn, a, .tab-btn, .tweak-name-btn');
+            const general = e.target.closest('button, .btn, a, .tab-btn, .tweak-name-btn, .sim-nav-btn, .sim-action-btn, .sim-sub-btn, .sim-toggle-btn');
             if (general) {
                 playProjectSound(pClickAudio);
             }
         });
+
+        let simState = {
+            opacity: 30,
+            showLastTweak: true,
+            isFav: false,
+            activeColorTarget: null,
+            colors: {
+                text: '#ff0000',
+                mainBg: '#000000',
+                headBg: '#0f0020',
+                tabBg: '#250000',
+                btnState: '#1b0020',
+                border: '#25002e',
+                elem: '#1b0020'
+            },
+            favFilter: 'ALL'
+        };
+
+        function setSimFavFilter(btn, filterType) {
+            document.querySelectorAll('.sim-fav-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            simState.favFilter = filterType;
+            updateSimFavDisplay();
+        }
+
+        function updateSimFavDisplay() {
+            const status = document.getElementById('sim-fav-status');
+            if (!status) return;
+            if (!simState.isFav) {
+                status.textContent = 'No favorites added yet. Click ☆ next to any tweak or setting to bookmark it!';
+                return;
+            }
+            if (simState.favFilter === 'Tweaks') {
+                status.textContent = 'No tweak favorites bookmarked yet.';
+            } else {
+                status.textContent = '★ Bookmarked: GUI Opacity (Global Settings)';
+            }
+        }
+
+        function toggleSimFav(star) {
+            simState.isFav = !simState.isFav;
+            star.textContent = simState.isFav ? '★' : '☆';
+            star.classList.toggle('active', simState.isFav);
+            updateSimFavDisplay();
+        }
+
+        function hexToRgba(hex, alpha) {
+            let c = hex.replace('#', '');
+            if (c.length === 3) c = c.split('').map(x => x + x).join('');
+            const num = parseInt(c, 16);
+            const r = (num >> 16) & 255;
+            const g = (num >> 8) & 255;
+            const b = num & 255;
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        function applySimGuiVisuals() {
+            const alpha = (simState.opacity / 100).toFixed(2);
+            const bgRgba = hexToRgba(simState.colors.mainBg || '#000000', alpha);
+            const winSettings = document.getElementById('sim-window-settings');
+            const winGui = document.getElementById('sim-window-gui');
+            if (winSettings) {
+                winSettings.style.setProperty('--sim-window-bg', bgRgba);
+                winSettings.style.background = bgRgba;
+                winSettings.style.borderColor = simState.colors.border || '#25002e';
+            }
+            if (winGui) {
+                winGui.style.setProperty('--sim-window-bg', bgRgba);
+                winGui.style.background = bgRgba;
+                winGui.style.borderColor = simState.colors.border || '#25002e';
+            }
+            document.querySelectorAll('.sim-topbar').forEach(tb => {
+                tb.style.background = simState.colors.headBg || '#0f0020';
+            });
+            document.querySelectorAll('.sim-panel-title, .sim-section-title, .sim-fav-title').forEach(el => {
+                el.style.color = simState.colors.text || '#ff0000';
+            });
+            document.querySelectorAll('.sim-nav-btn.active').forEach(b => {
+                b.style.borderColor = simState.colors.border || '#ff0000';
+            });
+        }
+
+        function refreshSimBg() {
+            applySimGuiVisuals();
+        }
+
+        let isDraggingSlider = false;
+
+        function setSimOpacityFromEvent(e) {
+            const track = document.getElementById('sim-slider-track');
+            if (!track) return;
+            const rect = track.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            let pct = Math.round((clickX / rect.width) * 100);
+            pct = Math.max(0, Math.min(100, pct));
+            simState.opacity = pct;
+            document.getElementById('sim-opacity-val').textContent = pct + '%';
+            document.getElementById('sim-slider-fill').style.width = pct + '%';
+            refreshSimBg();
+        }
+
+        function updateSimOpacity(e) {
+            setSimOpacityFromEvent(e);
+        }
+
+        const sliderTrack = document.getElementById('sim-slider-track');
+        if (sliderTrack) {
+            sliderTrack.addEventListener('mousedown', function (e) {
+                isDraggingSlider = true;
+                setSimOpacityFromEvent(e);
+            });
+        }
+
+        window.addEventListener('mousemove', function (e) {
+            if (isDraggingSlider) {
+                setSimOpacityFromEvent(e);
+            }
+        });
+
+        window.addEventListener('mouseup', function () {
+            isDraggingSlider = false;
+        });
+
+        function toggleSimState(btn) {
+            simState.showLastTweak = !simState.showLastTweak;
+            btn.textContent = simState.showLastTweak ? 'True' : 'False';
+            btn.classList.toggle('on', simState.showLastTweak);
+        }
+
+        function saveSimConfig(btn) {
+            const original = btn.textContent;
+            btn.textContent = 'Saved!';
+            setTimeout(function () {
+                btn.textContent = original;
+            }, 1000);
+        }
+
+        function resetSimSettings() {
+            simState.opacity = 30;
+            simState.showLastTweak = false;
+            document.getElementById('sim-opacity-val').textContent = '30%';
+            document.getElementById('sim-slider-fill').style.width = '30%';
+            const toggleBtn = document.getElementById('sim-toggle-last-tweak');
+            if (toggleBtn) {
+                toggleBtn.textContent = 'False';
+                toggleBtn.classList.remove('on');
+            }
+            refreshSimBg();
+        }
+
+        function toggleSimDropdown(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const isOpen = el.classList.contains('open');
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+            if (!isOpen) el.classList.add('open');
+        }
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.sim-dropdown-box')) {
+                document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+            }
+        });
+
+        function setSimFont(name, fontVal) {
+            document.getElementById('sim-font-label').textContent = name;
+            const winSettings = document.getElementById('sim-window-settings');
+            const winGui = document.getElementById('sim-window-gui');
+            if (winSettings) winSettings.style.fontFamily = fontVal;
+            if (winGui) winGui.style.fontFamily = fontVal;
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+        }
+
+        function setSimTextTarget(name, color) {
+            document.getElementById('sim-text-target-label').textContent = name;
+            document.getElementById('sim-text-swatch').style.background = color;
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+        }
+
+        function setSimTabBgTarget(name, color) {
+            document.getElementById('sim-tabbg-label').textContent = name;
+            document.getElementById('sim-tabbg-swatch').style.background = color;
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+        }
+
+        function setSimBtnState(name, color) {
+            document.getElementById('sim-btnstate-label').textContent = name;
+            document.getElementById('sim-btnstate-swatch').style.background = color;
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+        }
+
+        function setSimBorderTarget(name, color) {
+            document.getElementById('sim-border-label').textContent = name;
+            document.getElementById('sim-border-swatch').style.background = color;
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+        }
+
+        function setSimElemTarget(name, color) {
+            document.getElementById('sim-elem-label').textContent = name;
+            document.getElementById('sim-elem-swatch').style.background = color;
+            document.querySelectorAll('.sim-dropdown-list').forEach(d => d.classList.remove('open'));
+        }
+
+        function toggleSimButtonsAccordion() {
+            const pane = document.getElementById('sim-buttons-subpane');
+            const btn = document.getElementById('sim-btn-accordion');
+            if (pane.style.display === 'none') {
+                pane.style.display = 'block';
+                btn.textContent = '▼ Buttons';
+                btn.classList.add('expanded');
+            } else {
+                pane.style.display = 'none';
+                btn.textContent = '▶ Buttons';
+                btn.classList.remove('expanded');
+            }
+        }
+
+        function openSimColorPicker(targetKey) {
+            simState.activeColorTarget = targetKey;
+            const modal = document.getElementById('sim-cp-modal');
+            const overlay = document.getElementById('sim-modal-overlay');
+            const hexInput = document.getElementById('sim-cp-hex');
+            const preview = document.getElementById('sim-cp-preview');
+            const title = document.getElementById('sim-cp-target-title');
+            const current = simState.colors[targetKey] || '#ff0000';
+
+            title.textContent = 'Color: ' + targetKey;
+            hexInput.value = current;
+            preview.style.background = current;
+            if (overlay) overlay.classList.add('open');
+            if (modal) modal.classList.add('open');
+        }
+
+        function closeSimColorPicker() {
+            const modal = document.getElementById('sim-cp-modal');
+            const overlay = document.getElementById('sim-modal-overlay');
+            if (modal) modal.classList.remove('open');
+            if (overlay) overlay.classList.remove('open');
+            simState.activeColorTarget = null;
+        }
+
+        function onSimHexInput(val) {
+            if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+                document.getElementById('sim-cp-preview').style.background = val;
+            }
+        }
+
+        function applySimColor() {
+            const hex = document.getElementById('sim-cp-hex').value;
+            if (/^#[0-9A-Fa-f]{6}$/.test(hex) && simState.activeColorTarget) {
+                simState.colors[simState.activeColorTarget] = hex;
+                const swatch = document.getElementById('sim-' + simState.activeColorTarget.toLowerCase() + '-swatch');
+                if (swatch) swatch.style.background = hex;
+                applySimGuiVisuals();
+            }
+            closeSimColorPicker();
+        }
+
+        function resetSimColor(targetKey) {
+            const defaults = {
+                text: '#ff0000',
+                mainBg: '#000000',
+                headBg: '#0f0020',
+                tabBg: '#250000',
+                btnState: '#1b0020',
+                border: '#25002e',
+                elem: '#1b0020'
+            };
+            const col = defaults[targetKey] || '#ff0000';
+            simState.colors[targetKey] = col;
+            const swatch = document.getElementById('sim-' + targetKey.toLowerCase() + '-swatch');
+            if (swatch) swatch.style.background = col;
+            applySimGuiVisuals();
+        }
+
+        function resetAllSimGui() {
+            ['text', 'mainBg', 'headBg', 'tabBg', 'btnState', 'border', 'elem'].forEach(k => resetSimColor(k));
+            applySimGuiVisuals();
+        }
+
+        applySimGuiVisuals();
     </script>
 </body>
+
 </html>
